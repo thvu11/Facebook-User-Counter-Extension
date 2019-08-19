@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "thvu Facebook scrap",
+  "description": "Facebook online user online analysis records how many people are online on a specific time.",
+  "version": "1",
+  "author": "Trieu Huy Vu",
+  "browser_action": {
+    "default_icon": "tab-icon.png",
+    "default_title": "Facebook online user analysis",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "webNavigation",
+    "tabs",
+    "alarms"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/"],
+      "js": ["js/jquery-3.2.1.min.js", "contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": ["embedded_graph.html"]
+}
